@@ -1,0 +1,2 @@
+npm install express ou npm i express
+npm init -y
