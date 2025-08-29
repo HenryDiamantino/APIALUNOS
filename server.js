@@ -120,7 +120,7 @@ app.patch("/alunos/nome/:id", (req, res)=>{
         return res.status(404).json({msg: "Aluno não encontrado!!"});
     }
     if(!nome){
-        return res.status(400).json({msg: "Nome é obrigatório"})
+        return res.status(400).json({msg: "O nome é obrigatório"})
     }
     alunos[indice].nome = nome;
     res.status(200).json({msg: "Nome do aluno alterado com sucesso!!"})
@@ -136,7 +136,7 @@ app.patch("/alunos/cor/:id", (req, res)=>{
         return res.status(404).json({msg: "Aluno não encontrado!!"});
     }
     if(!cor){
-        return res.status(400).json({msg: "Nome é obrigatório"})
+        return res.status(400).json({msg: "A cor é obrigatório"})
     }
     alunos[indice].cor = cor;
     res.status(200).json({msg: "Cor do aluno alterado com sucesso!!"})
@@ -152,7 +152,7 @@ app.patch("/alunos/idade/:id", (req, res)=>{
         return res.status(404).json({msg: "Aluno não encontrado!!"});
     }
     if(!idade){
-        return res.status(400).json({msg: "Nome é obrigatório"})
+        return res.status(400).json({msg: "A idade é obrigatório"})
     }
     alunos[indice].idade = idade;
     res.status(200).json({msg: "Idade do aluno alterado com sucesso!!"})
