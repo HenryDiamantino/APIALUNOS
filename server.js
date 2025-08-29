@@ -110,6 +110,54 @@ app.put("/alunos/:id", (req, res)=>{
     res.status(200).json({msg: "Aluno alterado com sucesso!!"});
 })
 
+app.patch("/alunos/nome/:id", (req, res)=>{
+    const id = Number(req.params.id);
+    const {nome} = req.body;
+
+    const indice = alunos.findIndex(aluno => aluno.id === id);
+
+    if(indice === -1){
+        return res.status(404).json({msg: "Aluno não encontrado!!"});
+    }
+    if(!nome){
+        return res.status(400).json({msg: "Nome é obrigatório"})
+    }
+    alunos[indice].nome = nome;
+    res.status(200).json({msg: "Nome do aluno alterado com sucesso!!"})
+})
+
+app.patch("/alunos/cor/:id", (req, res)=>{
+    const id = Number(req.params.id);
+    const {cor} = req.body;
+
+    const indice = alunos.findIndex(aluno => aluno.id === id);
+
+    if(indice === -1){
+        return res.status(404).json({msg: "Aluno não encontrado!!"});
+    }
+    if(!cor){
+        return res.status(400).json({msg: "Nome é obrigatório"})
+    }
+    alunos[indice].cor = cor;
+    res.status(200).json({msg: "Cor do aluno alterado com sucesso!!"})
+})
+
+app.patch("/alunos/idade/:id", (req, res)=>{
+    const id = Number(req.params.id);
+    const {idade} = req.body;
+
+    const indice = alunos.findIndex(aluno => aluno.id === id);
+
+    if(indice === -1){
+        return res.status(404).json({msg: "Aluno não encontrado!!"});
+    }
+    if(!idade){
+        return res.status(400).json({msg: "Nome é obrigatório"})
+    }
+    alunos[indice].idade = idade;
+    res.status(200).json({msg: "Idade do aluno alterado com sucesso!!"})
+})
+
 app.listen(PORT, ()=>{
     console.log(`Servidor rodando em http://localhost:${PORT}`);
 })
